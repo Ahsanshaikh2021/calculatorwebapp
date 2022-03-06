@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='calculator.css') }}" /> -->
+</head>
+<!-- style="background-color: #FDE3A8" -->
+<body style="background-color: #FDE3A8">
+    <img style="display: inline-block; float: right;" src={{image}} alt="cartoon image" width="400px" height="400px">
+    <div style="display: inline-block; width: 20%; float: left;">
+        <h2>Cloud Computing Assignment No.1</h2>
+        <h3>Group Members</h3>
+        <ul>
+            <li><h4>Fahad Daniyal - 273420</h4></li>
+            <li><h4>Ahsan Shaikh - 363202</h4></li>
+            <li><h4>Zumair Ali - 274655</h4></li>
+            <li><h4>Tahir Ali - 273697</h4></li>
+        </ul>
+    </div>
+    
+    <center>
+    <div style="border-radius: 10%; background-color: #19DAF9; border: 15px solid black; width: 300px; padding: 50px; margin: 20px;"
+        <center>
+        <h1 style="background-color: black; color: #19DAF9;">Calculator</h1>
+        <form method="post" action="{{ url_for('operation_result') }}" id="calculator_form">
+            <!-- <div style="display: inline-block;"> -->
+            <label for="Input1" style="font-size: large; font-weight: bold; display: inline-block;">
+                <p>Input1: </p>
+            </label>
+            <input style="background-color: black; color: white; display: inline-block; font-weight: bold;" type="text"
+                name="Input1" id="Input1">
+            <!-- </div> -->
+            <br />
+            <!-- <div> -->
+            <label for="Input2" style="font-size: large; font-weight: bold; display: inline-block;">
+                <p> Input2: </p>
+            </label>
+            <input style="background-color: black; color: white; display: inline-block; font-weight: bold;"
+                type="Input2" name="Input2" id="Input2">
+            <!-- </div> -->
+            <br />
+            <div>
+                <label for="operation" style="font-size: large; font-weight: bold; display: inline-block;">
+                    <p> Operation </p>
+                </label>
+                <select style="background-color: black; color: white; display: inline-block; font-weight: bold;"
+                    id="operation" name="operation">
+                    <option value="+">Addition</option>
+                    <option value="-">Subtraction</option>
+                    <option value="/">Division</option>
+                    <option value="*">Multiplication</option>
+                    <option value="%">Modulus</option>
+                </select>
+            </div>
+            <br />
+            <input style="background-color: black; color: #19DAF9; font-weight: bold;" type="submit" value="Submit" />
+        </form>
+        </center>
+    </div>
+    </center>
+
+    {% if calculation_success == True %}
+    <br />
+    <h3>The calculation for {{input1}} {{operation}} {{input2}} is: {{result}}</h3>
+    {% endif %}
+    {% if calculation_success == False %}
+    <br />
+    <h3>{{error}}</h3>
+    <h3>{{input1}} {{operation}} {{input2}} = "{{result}}"</h3>
+    {% endif %}
+
+
+    <div style="display: inline-block; width: 20%; float: left;">
+        <h2 style="background-color: #FF78A6; color: black; color: black; border: 5px solid black; width: 400px; padding: 10px; margin: 10px;"> Operations {{L}} </h2>
+
+        <ol>
+            <!-- {% if L != 20 %}  -->
+            {% for log1 in logs %}
+            <li>
+                <h3>{{log1}} </h3>
+                {%endfor%}
+
+
+
+
+
+
+                <!-- {% else %}
+                <li><h3> {{ message }}</h3></li>
+        {% endif %} -->
+
+        </ol>
+    </div>
+
+    <div style="display: inline-block; width: 80%; float: right;">
+        <h2 style="background-color: #FF78A6; color: black; border: 5px solid black; width: 800px; padding: 10px; margin: 10px;"> logs {{R}} </h2>
+        <!-- {% if L != 20 %}  -->
+        {% for log2 in logs_for_request %}
+        <h3>{{log2}} </h3>
+        {%endfor%}
+
+
+
+
+
+
+        <!-- {% else %}
+                <li><h3> {{ message }}</h3></li>
+        {% endif %} -->
+
+    </div>
+
+
+    <!-- <h1> {% if L == 20 %} {{ message }} {% endif %} </h1> -->
+
+
+
+
+
+
+</body>
+
+</html>
